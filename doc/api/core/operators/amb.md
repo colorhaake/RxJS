@@ -1,15 +1,18 @@
 ### `Rx.Observable.amb(...args)` [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/amb.js "View in source")
 
 Propagates the observable sequence or Promise that reacts first. "amb" stands for [ambiguous](http://blogs.msdn.com/b/jeffva/archive/2009/11/18/amb-materialize-and-dematerialize.aspx).
+
 參數裡面的Observable或者Promises們，誰先送event，amb就送他的Observable。
 注意：amb只會送一次而已，之後就永遠是那個Observable。
 
 #### Arguments
 1. `args` *(Array|arguments)*: Observable sources or Promises competing to react first either as an array or arguments.
+
 Observable或者Promises都可以，或者你把他包成array傳進去也行。
 
 #### Returns
 *(`Observable`)*: An observable sequence that surfaces any of the given sequences, whichever reacted first.
+
 回傳先送event的Observable。
 
 #### Example
