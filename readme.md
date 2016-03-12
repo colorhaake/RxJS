@@ -18,6 +18,9 @@
 **[Contributing](#contributing)** |
 **[License](#license)**
 
+# 我fork來加上“個人“的中文解釋
+## 第一步是來加上api doc的個人偏頗的注釋
+詳情請看/doc/api/core/operations
 # The Reactive Extensions for JavaScript (RxJS) <sup>4.0</sup>... #
 
 *...is a set of libraries to compose asynchronous and event-based programs using observable collections and [Array#extras](http://blogs.msdn.com/b/ie/archive/2010/12/13/ecmascript-5-part-2-array-extras.aspx) style composition in JavaScript*
