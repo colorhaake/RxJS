@@ -3,6 +3,10 @@
 
 Projects each element of an observable sequence into zero or more buffers which are produced based on timing information.
 
+http://reactivex.io/documentation/operators/buffer.html
+看了上面連結裡面的圖，你就會清楚這個operator的用途及參數怎麼下了。
+但是我對於下面的例子，結果跟我想的不太一樣，我還要花點時間在研究。
+
 #### Arguments
 1. `timeSpan` *(`Number`)*: Length of each buffer (specified as an integer denoting milliseconds).
 2. `[timeShift]` *(`Number`)*: Interval between creation of consecutive buffers (specified as an integer denoting milliseconds).

@@ -3,6 +3,8 @@
 
 Continues an observable sequence that is terminated by an exception with the next observable sequence.
 
+就是參數裡面的Observable們，有人發生exception的話，catch就會抓住他，然後從參數中找第一個可以不會回傳exception的Observable，當作handler去發送它的event，而不是error。看下面例子很好懂。就算參數裡面的Observable們沒有人發生excpetion，catch還是會回傳第一個正常的Observable出去。
+
 #### Arguments
 1. `args` *(`Array` | `arguments`)*: Observable sequences to catch exceptions for.
 

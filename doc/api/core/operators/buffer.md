@@ -7,10 +7,14 @@ Note that if the source Observable issues an `onError` notification, `buffer` wi
 
 There are a number of ways with which you can regulate how `buffer` gathers items from the source Observable into buffers:
 
+就是會buffer你傳進來的event，然後用bufferClosingSelector, bufferOpennings或者bufferBoundaries來決定什麼時候把buffer裡的event一起送出去，然後清空buffer，繼續buffer events。
+
 #### With buffer closing selector
 ```js
 Rx.Observable.prototype.buffer(bufferClosingSelector);
 ```
+
+bufferClosingSelectr是個function，他會回傳一個Observable，當回傳的Observable送出event的時候，就是把buffer裡面event送出去，然後清空buffer的時候。
 
 Returns an Observable that emits buffers of items it collects from the source `Observable`. The resulting `Observable` emits connected, non-overlapping buffers. It emits the current buffer and replaces it with a new buffer whenever the `Observable` produced by the specified `bufferClosingSelector` emits an item.
 
@@ -23,8 +27,8 @@ Returns an Observable that emits buffers of items it collects from the source `O
 #### Example
 ```js
 // With closings
-var source = Rx.Observable.timer(0, 50)
-  .buffer(function () { return Rx.Observable.timer(125); })
+var source = Rx.Observable.timer(0, 50) // 從時間0開始，每50 milliseconds送出0, 1, 2, ...依此類推
+  .buffer(function () { return Rx.Observable.timer(125); }) // bufferSelector會回傳一個timer的Observable，這個Observable會在第125 milliseconds的時候送出event，來清空buffer。
   .take(3);
 
 var subscription = source.subscribe(
@@ -48,6 +52,8 @@ var subscription = source.subscribe(
 ```js
 Rx.Observable.prototype.buffer(bufferOpenings, bufferClosingSelector);
 ```
+
+bufferOpenings是一個Observable，用來決定什麼時候要開始buffer event；bufferClosingSelector，則是在buffer event開始之後，用來決定什麼時候要結束這個buffer，清空events。
 
 This version of `buffer` monitors an `Observable`, `bufferOpenings`, that emits Observable objects. Each time it observes such an emitted object, it creates a new bundle to begin collecting items emitted by the source Observable and it passes the `bufferOpenings` Observable into the `bufferClosingSelector` function. That function returns an `Observable`. `buffer` monitors that `Observable` and when it detects an emitted object, it closes its bundle and emits it as its own emission.
 
@@ -88,6 +94,8 @@ var subscription = source.subscribe(
 ```js
 Rx.Observable.prototype.buffer(bufferBoundaries);
 ```
+
+bufferBoundaries是一個Observable，當它送出event的時候，就是要清空buffer的時候。預設是從0開始。
 
 Returns an `Observable` that emits non-overlapping buffered items from the source `Observable` each time the specified boundary `Observable` emits an item.
 

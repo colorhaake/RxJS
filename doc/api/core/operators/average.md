@@ -3,9 +3,12 @@
 
 Computes the average of an observable sequence of values that are in the sequence or obtained by invoking a transform function on each element of the input sequence if present.
 
+就是算所有傳進來event的平均。但是就是要等到event送onCompleted之後，才會開始計算。
 #### Arguments
 1. `[selector]` *(`Function`)*: A transform function to apply to each element.
 2. `[thisArg]` *(`Any`)*: Object to use as `this` when executing `selector`.
+
+參數selector可以用來轉變傳進來的event，要不要用看你需求。
 
 #### Returns
 *(`Observable`)*: An observable sequence containing a single element with the average of the sequence of values.
@@ -14,6 +17,7 @@ Computes the average of an observable sequence of values that are in the sequenc
 ```js
 // Without a selector
 var source = Rx.Observable.range(0, 9).average();
+傳進從0開始的9個數字(0, 1, 2, ..., 9)，然後算平均。
 
 var subscription = source.subscribe(
     function (x) {
@@ -36,6 +40,7 @@ var arr = [
     { value: 3 }
 ];
 
+用selector的例子。
 var source = Rx.Observable.from(arr).average(function (x) {
     return x.value;
 });

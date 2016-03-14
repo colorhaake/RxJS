@@ -3,6 +3,8 @@
 
 Propagates the observable sequence that reacts first.
 
+意思同amb.js，請參考amb.js
+
 #### Arguments
 1. `rightSource` *(`Observable`)*: Second observable sequence.
 

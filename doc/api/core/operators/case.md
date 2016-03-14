@@ -3,6 +3,13 @@
 
 Uses selector to determine which source in sources to use.  There is an alias 'switchCase' for browsers <IE9.
 
+就是switch case。
+他有三個參數
+1. selector，用來提供值用於sources的判斷，也就是switch(test) {...}裡面的test。
+2. sources，用selector function的回傳值，來判斷用要sources裡面的哪個Observable，也就是switch (test) {case A {...} case B {...} case C {...}}裡的A, B, C
+3. default Observable，當sources裡面的Observable都沒有符合條件的話，就會回傳default Observable。
+詳細看下面的例子，就會非常好懂。
+
 ### Arguments
 1. `selector` *(`Function`)*: The function which extracts the value for to test in a case statement.
 2. `sources` *(`Object`)*: A object which has keys which correspond to the case statement labels.

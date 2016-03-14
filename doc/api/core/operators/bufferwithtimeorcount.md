@@ -3,6 +3,9 @@
 
 Projects each element of an observable sequence into a buffer that is completed when either it's full or a given amount of time has elapsed.
 
+當timeSpan已經到了，或者count的數量已經滿足了，就會送event。
+也就是說如果buffer滿了，就會送event；或者buffer還沒滿，但時間到了，一樣會送event。
+
 #### Arguments
 1. `timeSpan` *(`Number`)*: Maximum time length of a buffer.
 2. `count` *(`Number`)*: Maximum element count of a buffer.

@@ -3,6 +3,9 @@
 
 Continues an observable sequence that is terminated by an exception with the next observable sequence.
 
+就是catch error，參數就是error handler，可以代兩種形式：1. Observable。2. function
+當catch到error之後，他會由參數給的Observable來送event當作handle；參數如果是function的話，其回傳值也是要有一個Observable，當作error handler。
+
 #### Arguments
 
 Using another Observable:
