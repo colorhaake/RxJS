@@ -3,6 +3,8 @@
 
 Runs all observable sequences in parallel and collect their last elements.
 
+參數為任意數量的Observable，這個operator會收集每個Observable裡面所發送的最後一個event，組成一個array，然後透過resultSelector來做轉換，然後發送event；如果沒有指定resultSelector，則會直接回傳組成的array。
+
 #### Arguments
 1. `args` *(Arguments | Array)*: An array or arguments of Observable sequences or Promises to collect the last elements for.
 2. `resultSelector`: `Function` - The result selector from all the values produced. If not specified, `forkJoin` will return the results as an array.

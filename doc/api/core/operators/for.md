@@ -4,6 +4,10 @@
 Concatenates the observable sequences or Promises obtained by running the specified result selector for each element in source.
 There is an alias for this method called `forIn` for browsers <IE9
 
+把sources裡面的值，透過resultSelector，一個一個轉換成Observable。最後回傳的時候，在把這些Observable concat在一起。
+sources為一Array
+resultSelector為一function，回傳Observable。
+
 #### Arguments
 1. `sources` *(Array)*: An array of values to turn into an observable sequence.
 2. `resultSelector` *(`Function`)*: A function to apply to each item in the sources array to turn it into an observable sequence. The resultSelector is called with the following information:

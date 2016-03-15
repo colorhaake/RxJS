@@ -3,6 +3,8 @@
 
 Expands an observable sequence by recursively invoking selector.
 
+無窮遞迴的方式去呼叫selector function產生資料串。看下面例子可以清楚了解。
+
 #### Arguments
 1. `selector` *(`Function`)*: Selector function to invoke for each produced element, resulting in another sequence to which the selector will be invoked recursively again.
 2. [`scheduler=Rx.Scheduler.immediate`] *(`Scheduler`)*: Scheduler on which to perform the expansion. If not provided, this defaults to the immediate scheduler.

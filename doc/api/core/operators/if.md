@@ -4,6 +4,9 @@
 
 Determines whether an observable collection contains values. There is an alias for this method called `ifThen` for browsers <IE9
 
+當condition成立的時候，就會回傳thenSource這個Observable，反之回傳elseSource。
+condition為一個function，回傳true/false。
+
 #### Arguments
 1. `condition` *(`Function`)*: The condition which determines if the thenSource or elseSource will be run.
 2. `thenSource` *(`Observable`)*: thenSource The observable sequence that will be run if the condition function returns true.
